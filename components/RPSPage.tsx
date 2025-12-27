@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 
 interface CarouselItem {
@@ -97,9 +96,9 @@ const RPSPage: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const scrollCarousel = (ref: React.RefObject<HTMLDivElement | null>, direction: 'left' | 'right') => {
+  const scrollCarousel = (ref: React.RefObject<HTMLDivElement | null>, direction: 'left' | 'right', itemWidth: number = 1196) => {
     if (ref.current) {
-      const scrollAmount = 1196 + 32; // width + gap
+      const scrollAmount = itemWidth + 32; // width + gap
       ref.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
@@ -214,7 +213,6 @@ const RPSPage: React.FC = () => {
           </div>
           <div className="mt-8 space-y-4 w-full text-center">
             <h2 className="text-[48px] leading-[56px] text-[#171A20] font-medium">Advanced Ecosystem</h2>
-            <p className="text-[20px] leading-[28px] text-[#5C5E62] font-normal">A detailed view of the infrastructure powering the future of distribution.</p>
           </div>
         </div>
       </section>
@@ -273,14 +271,250 @@ const RPSPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Next Level Performance Section - Matching Advanced Ecosystem exactly, Left Aligned Text */}
+      {/* Next Level Performance Section - Container 1425x720, Media 1196x580, Left Aligned Text */}
+      <section className="flex flex-col items-center justify-center bg-white overflow-hidden py-16">
+        <div 
+          className="relative flex flex-col items-center px-[48px]"
+          style={{ 
+            maxWidth: '1425px', 
+            width: '100%',
+            height: '720px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <div 
+            className="relative overflow-hidden rounded-[9px] bg-gray-100"
+            style={{ 
+              width: '1196px', 
+              height: '580px',
+              maxWidth: '100%',
+              maxHeight: '100%'
+            }}
+          >
+             <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                <source src="https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto:best/Model-S-New-Interior-Carousel-Slide-1-Desktop-NA.mp4" type="video/mp4" />
+              </video>
+          </div>
+          <div className="mt-8 space-y-2 w-full text-left" style={{ maxWidth: '1196px' }}>
+            <h2 className="text-[48px] leading-[56px] text-[#171A20] font-medium">Next Level Performance</h2>
+            <p className="text-[20px] leading-[28px] text-[#5C5E62] font-normal">Beyond distribution, our ecosystem provides an intelligent layer of data that helps you optimize your operations in real-time.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Safety Section - Section size 2788x712, Padding 170px, Image 800x580 */}
+      <section className="bg-white group relative" style={{ height: '712px' }}>
+        <div className="w-full relative h-full flex flex-col justify-center">
+          <button 
+            onClick={() => scrollCarousel(safetyCarouselRef, 'left', 800)} 
+            className="absolute left-[200px] top-[290px] -translate-y-1/2 z-20 p-4 rounded-full bg-white/10 backdrop-blur-lg text-white border border-white/20 hover:bg-white/30 transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+          </button>
+          <button 
+            onClick={() => scrollCarousel(safetyCarouselRef, 'right', 800)} 
+            className="absolute right-[40px] top-[290px] -translate-y-1/2 z-20 p-4 rounded-full bg-white/10 backdrop-blur-lg text-white border border-white/20 hover:bg-white/30 transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          </button>
+
+          <div 
+            ref={safetyCarouselRef} 
+            className="flex h-full space-x-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide" 
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none'
+            }}
+          >
+            <div className="shrink-0 w-[170px] h-full snap-start" />
+            
+            {SAFETY_ITEMS.map((item) => (
+              <div key={item.id} className="snap-start flex flex-col shrink-0 justify-center h-full" style={{ width: '800px' }}>
+                <div 
+                  className="relative overflow-hidden rounded-[9px] bg-gray-100 mb-8"
+                  style={{ width: '800px', height: '580px' }}
+                >
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                </div>
+                <div className="space-y-2 w-full">
+                  <h2 className="text-[10px] font-bold text-gray-400 tracking-[0.2em] uppercase">Safety</h2>
+                  <h3 className="text-[28px] leading-tight text-[#171A20] font-medium">{item.title}</h3>
+                  <p className="text-[16px] leading-[24px] text-[#5C5E62] font-normal max-w-full">{item.description}</p>
+                </div>
+              </div>
+            ))}
+            <div className="shrink-0 w-[170px] h-full snap-start" />
+          </div>
+        </div>
+      </section>
+
+      {/* Autonomous Section - Container 1521x720, Image 1183x580, Padding 48px, Left Aligned Text */}
       <section className="flex flex-col items-center justify-center bg-white overflow-hidden py-16">
         <div 
           className="relative flex flex-col items-center px-[48px]"
           style={{ 
             maxWidth: '1521px', 
             width: '100%',
-            height: '1128px',
+            height: '720px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <div 
+            className="relative overflow-hidden rounded-[9px] bg-gray-100"
+            style={{ 
+              width: '1183px', 
+              height: '580px',
+              maxWidth: '100%',
+              maxHeight: '100%'
+            }}
+          >
+            <img 
+              src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-FSD-Desktop-NA-v2.png" 
+              alt="Autonomous Driving Ecosystem" 
+              className="w-full h-full object-cover block" 
+            />
+          </div>
+          <div className="mt-8 space-y-4 w-full text-left" style={{ maxWidth: '1183px' }}>
+            <h2 className="text-[48px] leading-[56px] text-[#171A20] font-medium">The Future of Travel Is Autonomous</h2>
+            <p className="text-[20px] leading-[28px] text-[#5C5E62] font-normal">
+              Enter your destination and your Model S will manage your drive, from start to finish. Full Self-Driving (Supervised) provides advanced features that offer more active guidance and assisted driving under your active supervision.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Enterprise Intelligence Section - Container 1521x744, Image 1425x580, 48px Padding, Left Aligned */}
+      <section className="flex flex-col items-center justify-center bg-[#222222] text-white overflow-hidden py-16">
+        <div 
+          className="relative flex flex-col items-center px-[48px]"
+          style={{ 
+            maxWidth: '1521px', 
+            width: '100%',
+            height: '744px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <div 
+            className="relative overflow-hidden rounded-[9px] bg-gray-800 shadow-2xl"
+            style={{ 
+              width: '1425px', 
+              height: '580px',
+              maxWidth: '100%',
+              maxHeight: '100%'
+            }}
+          >
+            <img 
+              src="https://res.cloudinary.com/dt8jmqu8d/image/upload/v1764218338/Screenshot_2025-11-27_100831_qvnqx7.png" 
+              alt="Enterprise Intelligence" 
+              className="w-full h-full object-cover block" 
+            />
+          </div>
+          <div className="mt-8 space-y-4 w-full text-left" style={{ maxWidth: '1425px' }}>
+            <h3 className="text-[34px] leading-tight font-medium">Enterprise Intelligence</h3>
+            <p className="text-[20px] leading-[28px] text-gray-300 font-normal">A comprehensive view of your entire energy distribution network.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Tri-Motor Power Section - Container 1521x744, Image 1425x580, 48px Padding, Left Aligned */}
+      <section className="flex flex-col items-center justify-center bg-[#222222] text-white overflow-hidden py-16">
+        <div 
+          className="relative flex flex-col items-center px-[48px]"
+          style={{ 
+            maxWidth: '1521px', 
+            width: '100%',
+            height: '744px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <div 
+            className="relative overflow-hidden rounded-[9px] bg-gray-800 shadow-2xl"
+            style={{ 
+              width: '1425px', 
+              height: '580px',
+              maxWidth: '100%',
+              maxHeight: '100%'
+            }}
+          >
+            <img 
+              src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Tri-Motor-Desktop-NA.png" 
+              alt="Tri-Motor Power" 
+              className="w-full h-full object-cover block" 
+            />
+          </div>
+          <div className="mt-8 space-y-4 w-full text-left" style={{ maxWidth: '1425px' }}>
+            <h3 className="text-[34px] leading-tight font-medium">Tri-Motor Power</h3>
+            <p className="text-[20px] leading-[28px] text-gray-300 font-normal">Three carbon-sleeved rotors and an enhanced battery system ensure maximum power.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Efficient by Design (Refined Aerodynamics) Section - Section size 2788x712, Padding 170px, Image 800x580 */}
+      <section className="bg-[#222222] group relative" style={{ height: '712px' }}>
+        <div className="w-full text-white relative h-full flex flex-col justify-center">
+          <button 
+            onClick={() => scrollCarousel(efficientCarouselRef, 'left', 800)} 
+            className="absolute left-[200px] top-[290px] -translate-y-1/2 z-20 p-4 rounded-full bg-white/10 backdrop-blur-lg text-white border border-white/20 hover:bg-white/30 transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+          </button>
+          <button 
+            onClick={() => scrollCarousel(efficientCarouselRef, 'right', 800)} 
+            className="absolute right-[40px] top-[290px] -translate-y-1/2 z-20 p-4 rounded-full bg-white/10 backdrop-blur-lg text-white border border-white/20 hover:bg-white/30 transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          </button>
+
+          <div 
+            ref={efficientCarouselRef} 
+            className="flex h-full space-x-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide" 
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none'
+            }}
+          >
+            <div className="shrink-0 w-[170px] h-full snap-start" />
+            
+            {EFFICIENT_ITEMS.map((item) => (
+              <div key={item.id} className="snap-start flex flex-col shrink-0 justify-center h-full" style={{ width: '800px' }}>
+                <div 
+                  className="relative overflow-hidden rounded-[9px] bg-gray-800 mb-8"
+                  style={{ width: '800px', height: '580px' }}
+                >
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                </div>
+                <div className="space-y-2 w-full px-2">
+                  <h2 className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Efficient by Design</h2>
+                  <h3 className="text-[28px] leading-tight font-medium">{item.title}</h3>
+                  <p className="text-[16px] leading-[24px] text-gray-300 font-normal max-w-full">{item.description}</p>
+                </div>
+              </div>
+            ))}
+            <div className="shrink-0 w-[170px] h-full snap-start" />
+          </div>
+        </div>
+      </section>
+
+      {/* Go Anywhere Section - Container 1521x1444, Image 1425x1024, 48px Padding, Left Aligned */}
+      <section className="flex flex-col items-center justify-center bg-white overflow-hidden py-16">
+        <div 
+          className="relative flex flex-col items-center px-[48px]"
+          style={{ 
+            maxWidth: '1521px', 
+            width: '100%',
+            height: '1444px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -296,180 +530,13 @@ const RPSPage: React.FC = () => {
               maxHeight: '100%'
             }}
           >
-             <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                <source src="https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto:best/Model-S-New-Interior-Carousel-Slide-1-Desktop-NA.mp4" type="video/mp4" />
-              </video>
-          </div>
-          <div className="mt-8 space-y-4 w-full text-left" style={{ maxWidth: '1425px' }}>
-            <h2 className="text-[48px] leading-[56px] text-[#171A20] font-medium">Next Level Performance</h2>
-            <h3 className="text-[34px] leading-tight text-[#171A20] font-medium">Integrated Energy Intelligence</h3>
-            <p className="text-[20px] leading-[28px] text-[#5C5E62] font-normal">Beyond distribution, our ecosystem provides an intelligent layer of data that helps you optimize your operations in real-time.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Safety Section - Fixed start alignment with snap-start spacer */}
-      <section className="bg-white py-24 group relative">
-        <div className="w-full relative h-full">
-          <button 
-            onClick={() => scrollCarousel(safetyCarouselRef, 'left')} 
-            className="absolute left-[200px] top-[290px] -translate-y-1/2 z-20 p-4 rounded-full bg-white/10 backdrop-blur-lg text-white border border-white/20 hover:bg-white/30 transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-          </button>
-          <button 
-            onClick={() => scrollCarousel(safetyCarouselRef, 'right')} 
-            className="absolute right-[40px] top-[290px] -translate-y-1/2 z-20 p-4 rounded-full bg-white/10 backdrop-blur-lg text-white border border-white/20 hover:bg-white/30 transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-          </button>
-
-          <div 
-            ref={safetyCarouselRef} 
-            className="flex space-x-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-12" 
-            style={{ 
-              scrollbarWidth: 'none', 
-              msOverflowStyle: 'none'
-            }}
-          >
-            <div className="shrink-0 w-[170px] h-full snap-start" />
-            
-            {SAFETY_ITEMS.map((item) => (
-              <div key={item.id} className="snap-start flex flex-col shrink-0" style={{ width: '1196px' }}>
-                <div 
-                  className="overflow-hidden rounded-[9px] bg-gray-100 mb-8"
-                  style={{ width: '1196px', height: '580px' }}
-                >
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
-                </div>
-                <div className="space-y-2 w-full px-2">
-                  <h2 className="text-[10px] font-bold text-[#171A20] tracking-[0.2em] uppercase text-gray-400">Safety</h2>
-                  <h3 className="text-[28px] leading-tight text-[#171A20] font-medium">{item.title}</h3>
-                  <p className="text-[16px] leading-[24px] text-[#5C5E62] font-normal max-w-2xl">{item.description}</p>
-                </div>
-              </div>
-            ))}
-            <div className="shrink-0 w-[170px] h-full snap-start" />
-          </div>
-        </div>
-      </section>
-
-      {/* Autonomous Section */}
-      <section className="bg-white py-24">
-        <div className="w-full flex flex-col items-center">
-          <div className="w-full px-[48px] py-0 overflow-hidden mb-16 flex justify-center">
-            <img 
-              src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-FSD-Desktop-NA-v2.png" 
-              alt="Autonomous Driving Ecosystem" 
-              className="rounded-[9px] object-cover"
-              style={{ width: '1196px', height: '580px' }}
-            />
-          </div>
-          <div className="max-w-3xl px-12 space-y-6 text-center">
-            <h2 className="text-[48px] leading-[56px] text-[#171A20] font-medium">
-              The Future of Travel Is Autonomous
-            </h2>
-            <p className="text-[20px] leading-[28px] text-[#5C5E62] font-normal">
-              Enter your destination and your Model S will manage your drive, from start to finish. Full Self-Driving (Supervised) provides advanced features that offer more active guidance and assisted driving under your active supervision.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Enterprise Sections */}
-      <section className="bg-[#222222] py-24 px-12 text-white">
-        <div className="w-full flex flex-col items-center">
-          <div className="mb-12">
-            <img 
-              src="https://res.cloudinary.com/dt8jmqu8d/image/upload/v1764218338/Screenshot_2025-11-27_100831_qvnqx7.png" 
-              alt="Intelligence" 
-              className="rounded-[9px] shadow-2xl"
-              style={{ width: '1196px', height: '580px', objectFit: 'cover' }}
-            />
-          </div>
-          <div className="space-y-4 max-w-7xl mx-auto w-full px-4 text-center">
-            <h3 className="text-[34px] leading-tight font-medium">Enterprise Intelligence</h3>
-            <p className="text-[20px] leading-[28px] text-gray-300 font-normal">A comprehensive view of your entire energy distribution network.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Tri-Motor Power Section */}
-      <section className="bg-[#222222] py-24 px-12 text-white">
-        <div className="w-full flex flex-col items-center">
-          <div className="mb-12">
-            <img 
-              src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Tri-Motor-Desktop-NA.png" 
-              alt="Tri-Motor Power" 
-              className="rounded-[9px] shadow-2xl" 
-              style={{ width: '1196px', height: '580px', objectFit: 'cover' }}
-            />
-          </div>
-          <div className="space-y-4 max-w-7xl mx-auto w-full px-4 text-center">
-            <h3 className="text-[34px] leading-tight font-medium">Tri-Motor Power</h3>
-            <p className="text-[20px] leading-[28px] text-gray-300 font-normal">Three carbon-sleeved rotors and an enhanced battery system ensure maximum power.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Efficient by Design Section */}
-      <section className="bg-[#222222] py-24 group relative">
-        <div className="w-full text-white relative h-full">
-          <button 
-            onClick={() => scrollCarousel(efficientCarouselRef, 'left')} 
-            className="absolute left-[200px] top-[290px] -translate-y-1/2 z-20 p-4 rounded-full bg-white/10 backdrop-blur-lg text-white border border-white/20 hover:bg-white/30 transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-          </button>
-          <button 
-            onClick={() => scrollCarousel(efficientCarouselRef, 'right')} 
-            className="absolute right-[40px] top-[290px] -translate-y-1/2 z-20 p-4 rounded-full bg-white/10 backdrop-blur-lg text-white border border-white/20 hover:bg-white/30 transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-          </button>
-
-          <div 
-            ref={efficientCarouselRef} 
-            className="flex space-x-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-12" 
-            style={{ 
-              scrollbarWidth: 'none', 
-              msOverflowStyle: 'none'
-            }}
-          >
-            <div className="shrink-0 w-[170px] h-full snap-start" />
-            
-            {EFFICIENT_ITEMS.map((item) => (
-              <div key={item.id} className="snap-start flex flex-col shrink-0" style={{ width: '1196px' }}>
-                <div 
-                  className="overflow-hidden rounded-[9px] bg-gray-800 mb-8"
-                  style={{ width: '1196px', height: '580px' }}
-                >
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
-                </div>
-                <div className="space-y-2 w-full px-2">
-                  <h2 className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Efficient by Design</h2>
-                  <h3 className="text-[28px] leading-tight font-medium">{item.title}</h3>
-                  <p className="text-[16px] leading-[24px] text-gray-300 font-normal max-w-2xl">{item.description}</p>
-                </div>
-              </div>
-            ))}
-            <div className="shrink-0 w-[170px] h-full snap-start" />
-          </div>
-        </div>
-      </section>
-
-      {/* Go Anywhere Section */}
-      <section className="bg-white py-24">
-        <div className="w-full flex flex-col items-center">
-          <div className="flex justify-center mb-12">
             <img 
               src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Go-Anywhere-Desktop-NA.png" 
               alt="Go Anywhere" 
-              className="rounded-[9px]"
-              style={{ width: '1196px', height: '580px', objectFit: 'cover' }}
+              className="w-full h-full object-cover block" 
             />
           </div>
-          <div className="w-full max-w-7xl mx-auto px-16 space-y-4 text-center">
+          <div className="mt-8 space-y-4 w-full text-left" style={{ maxWidth: '1425px' }}>
             <h3 className="text-[34px] leading-tight text-[#171A20] font-medium">Go Anywhere</h3>
             <p className="text-[20px] leading-[28px] text-[#5C5E62] font-normal">
               Drive up to 410 miles on a single charge. When you need to recharge, add up to 205 miles in just 15 minutes<sup>5</sup> at one of over 75,000 Superchargers globally. Navigate with Trip Planner and your Tesla will automatically take you to Supercharging stops along the way while optimizing your route.
