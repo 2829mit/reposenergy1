@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { PRODUCT_PAGE_DATA } from '../constants';
 
@@ -171,9 +170,13 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId }) => {
       <section className="flex flex-col items-center justify-center bg-white overflow-hidden py-16 px-6 lg:px-12">
         <div className="relative flex flex-col items-center w-full max-w-[1425px] lg:h-[720px]">
           <div className="relative overflow-hidden rounded-[9px] bg-gray-100 w-full lg:w-[1196px] aspect-video lg:h-[580px] lg:aspect-auto">
-             <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                <source src={data.performance.video} type="video/mp4" />
-              </video>
+             {data.performance.video ? (
+               <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                 <source src={data.performance.video} type="video/mp4" />
+               </video>
+             ) : (
+               <img src={data.performance.image} alt={data.performance.title} className="w-full h-full object-cover" />
+             )}
           </div>
           <div className="mt-8 space-y-2 w-full text-left lg:max-w-[1196px]">
             <h2 className="text-[32px] lg:text-[48px] leading-tight text-[#171A20] font-medium">{data.performance.title}</h2>
