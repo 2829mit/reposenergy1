@@ -202,17 +202,6 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({
          </div>
       </div>
 
-      {/* CTA Footer */}
-      <div className="py-24 text-center bg-gray-50 border-t border-gray-200">
-         <h2 className="text-4xl font-semibold mb-8 text-black tracking-tight">Join the Revolution</h2>
-         <button 
-           onClick={onNavigateToApp}
-           className="bg-black text-white px-12 py-4 rounded-md font-bold uppercase tracking-widest hover:bg-gray-800 transition-colors shadow-lg"
-         >
-           Build Your Own RPS
-         </button>
-      </div>
-
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(20px); }

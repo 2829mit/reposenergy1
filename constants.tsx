@@ -162,7 +162,21 @@ const BASE_RPS_CONTENT: Omit<ProductPageContent, 'hero'> = {
     image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Tri-Motor-Desktop-NA.png"
   },
   efficientItems: [
-    { title: "Refined Aerodynamics", description: "Every curve is engineered to reduce drag and maximize operational range.", image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Exterior-Carousel-Slide-1-Desktop-NA.png" }
+    { 
+      title: "Refined Aerodynamics", 
+      description: "Every curve is engineered to reduce drag and maximize operational range.", 
+      image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Exterior-Carousel-Slide-1-Desktop-NA.png" 
+    },
+    { 
+      title: "Optimized Airflow", 
+      description: "Active shutters and hidden vents manage airflow to cooling systems with precise efficiency.", 
+      image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Exterior-Carousel-Slide-2-Desktop-NA.png" 
+    },
+    { 
+      title: "Zero Drag Design", 
+      description: "Smooth underbody panels minimize turbulence and enhance high-speed stability across all terrains.", 
+      image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Exterior-Carousel-Slide-3-Desktop-NA.png" 
+    }
   ],
   goAnywhere: {
     title: "Go Anywhere",

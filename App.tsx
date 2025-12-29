@@ -67,6 +67,13 @@ const App: React.FC = () => {
         onNavigate={handleNavigate}
       />
       
+      {/* Reduced Intensity Backdrop Blur Overlay - Subtle & Premium */}
+      <div 
+        className={`fixed inset-0 z-40 pointer-events-none transition-all duration-700 ease-in-out ${
+          activeMenu !== null ? 'opacity-100 backdrop-blur-sm bg-black/5' : 'opacity-0 backdrop-blur-none bg-transparent'
+        }`}
+      />
+
       <main className="relative flex-grow">
         {renderContent()}
       </main>

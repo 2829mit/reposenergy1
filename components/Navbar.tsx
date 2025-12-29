@@ -86,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
       );
     }
 
-    if (activeMenu && activeMenu !== 'About Us') {
+    if (activeMenu) {
       return (
         <div className="max-w-7xl mx-auto mt-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-medium text-gray-600">
@@ -158,7 +158,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
       <div 
         ref={dropdownRef}
         className={`hidden lg:block absolute top-0 left-0 right-0 bg-white transition-all duration-500 ease-in-out overflow-hidden shadow-2xl ${
-          activeMenu && activeMenu !== 'About Us' ? 'max-h-[70vh] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+          activeMenu ? 'max-h-[70vh] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
         }`}
       >
         <div className="pt-[56px] pb-16 px-12">
