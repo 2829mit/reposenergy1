@@ -8,4 +8,4 @@ export interface Product {
 
 export type MenuCategory = 'Products' | 'Solutions' | 'Resources' | 'Enterprise' | 'About Us' | 'Careers' | null;
 
-export type Page = 'home' | 'rps';
+export type Page = 'home' | 'rps' | 'datum-z' | 'datum-x' | 'datum-s' | 'rfs' | 'about-us';

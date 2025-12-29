@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustedBrands from './components/TrustedBrands';
-import RPSPage from './components/RPSPage';
+import ProductDetailPage from './components/RPSPage';
+import AboutUsPage from './components/AboutUsPage';
 import Footer from './components/Footer';
 import { MenuCategory, Page } from './types';
 
@@ -21,6 +22,43 @@ const App: React.FC = () => {
     setActiveMenu(null);
   };
 
+  const renderContent = () => {
+    if (currentPage === 'home') {
+      return (
+        <>
+          <Hero />
+          <TrustedBrands />
+          <section className="relative w-full h-[60vh] md:h-screen overflow-hidden bg-black">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover opacity-90"
+            >
+              <source src="https://res.cloudinary.com/dt8jmqu8d/video/upload/v1764178964/Transforming_Energy_Distribution_through_Repos_Ecosystem_ayqp2x.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+          </section>
+        </>
+      );
+    }
+    
+    if (currentPage === 'about-us') {
+      return (
+        <AboutUsPage 
+          onNavigateHome={() => handleNavigate('home')}
+          onNavigateToApp={() => handleNavigate('rps')}
+          onExploreClick={() => console.log('Explore clicked')}
+          onReposPayClick={() => console.log('Repos Pay clicked')}
+        />
+      );
+    }
+
+    return <ProductDetailPage productId={currentPage} />;
+  };
+
   return (
     <div className="relative min-h-screen bg-white text-gray-900 flex flex-col">
       <Navbar 
@@ -30,31 +68,7 @@ const App: React.FC = () => {
       />
       
       <main className="relative flex-grow">
-        {currentPage === 'home' ? (
-          <>
-            <Hero />
-            
-            {/* Trusted Brands Section */}
-            <TrustedBrands />
-            
-            {/* Bottom Ecosystem Video Section */}
-            <section className="relative w-full h-[60vh] md:h-screen overflow-hidden bg-black">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover opacity-90"
-              >
-                <source src="https://res.cloudinary.com/dt8jmqu8d/video/upload/v1764178964/Transforming_Energy_Distribution_through_Repos_Ecosystem_ayqp2x.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-            </section>
-          </>
-        ) : (
-          <RPSPage />
-        )}
+        {renderContent()}
       </main>
 
       <Footer />
