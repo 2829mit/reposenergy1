@@ -228,11 +228,17 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId }) => {
       <section className="flex flex-col items-center justify-center bg-white overflow-hidden py-16 px-6 lg:px-12">
         <div className="relative flex flex-col items-center w-full max-w-[1521px] lg:h-[720px]">
           <div className="relative overflow-hidden rounded-[9px] bg-gray-100 w-full lg:w-[1183px] aspect-video lg:h-[580px] lg:aspect-auto">
-            <img 
-              src={data.feature1.image} 
-              alt={data.feature1.title} 
-              className="w-full h-full object-cover block" 
-            />
+            {data.feature1.video ? (
+              <video autoPlay loop muted playsInline className="w-full h-full object-cover block">
+                <source src={data.feature1.video} type="video/mp4" />
+              </video>
+            ) : (
+              <img 
+                src={data.feature1.image} 
+                alt={data.feature1.title} 
+                className="w-full h-full object-cover block" 
+              />
+            )}
           </div>
           <div className="mt-8 space-y-4 w-full text-left lg:max-w-[1183px]">
             <h2 className="text-[32px] lg:text-[48px] leading-tight text-[#171A20] font-medium">{data.feature1.title}</h2>
@@ -245,11 +251,17 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId }) => {
       <section className="flex flex-col items-center justify-center bg-[#222222] text-white overflow-hidden py-16 px-6 lg:px-12">
         <div className="relative flex flex-col items-center w-full max-w-[1521px] lg:h-[744px]">
           <div className="relative overflow-hidden rounded-[9px] bg-gray-800 shadow-2xl w-full lg:w-[1425px] aspect-video lg:h-[580px] lg:aspect-auto">
-            <img 
-              src={data.feature2.image} 
-              alt={data.feature2.title} 
-              className="w-full h-full object-cover block" 
-            />
+            {data.feature2.video ? (
+              <video autoPlay loop muted playsInline className="w-full h-full object-cover block">
+                <source src={data.feature2.video} type="video/mp4" />
+              </video>
+            ) : (
+              <img 
+                src={data.feature2.image} 
+                alt={data.feature2.title} 
+                className="w-full h-full object-cover block" 
+              />
+            )}
           </div>
           <div className="mt-8 space-y-4 w-full text-left lg:max-w-[1425px]">
             <h3 className="text-[28px] lg:text-[34px] leading-tight font-medium">{data.feature2.title}</h3>
@@ -262,11 +274,17 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId }) => {
       <section className="flex flex-col items-center justify-center bg-[#222222] text-white overflow-hidden py-16 px-6 lg:px-12">
         <div className="relative flex flex-col items-center w-full max-w-[1521px] lg:h-[744px]">
           <div className="relative overflow-hidden rounded-[9px] bg-gray-800 shadow-2xl w-full lg:w-[1425px] aspect-video lg:h-[580px] lg:aspect-auto">
-            <img 
-              src={data.feature3.image} 
-              alt={data.feature3.title} 
-              className="w-full h-full object-cover block" 
-            />
+            {data.feature3.video ? (
+              <video autoPlay loop muted playsInline className="w-full h-full object-cover block">
+                <source src={data.feature3.video} type="video/mp4" />
+              </video>
+            ) : (
+              <img 
+                src={data.feature3.image} 
+                alt={data.feature3.title} 
+                className="w-full h-full object-cover block" 
+              />
+            )}
           </div>
           <div className="mt-8 space-y-4 w-full text-left lg:max-w-[1425px]">
             <h3 className="text-[28px] lg:text-[34px] leading-tight font-medium">{data.feature3.title}</h3>
@@ -316,15 +334,21 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId }) => {
 
       {/* Go Anywhere Section */}
       <section className="flex flex-col items-center justify-center bg-white overflow-hidden py-16 px-6 lg:px-12">
-        <div className="relative flex flex-col items-center w-full max-w-[1521px] lg:h-[1444px]">
-          <div className="relative overflow-hidden rounded-[9px] bg-gray-100 w-full lg:w-[1425px] aspect-video lg:h-[1024px] lg:aspect-auto">
-            <img 
-              src={data.goAnywhere.image} 
-              alt="Go Anywhere" 
-              className="w-full h-full object-cover block" 
-            />
+        <div className="relative flex flex-col items-center w-full max-w-[1425px]">
+          <div className="relative overflow-hidden rounded-[9px] bg-gray-100 w-full aspect-video">
+            {data.goAnywhere.video ? (
+              <video autoPlay loop muted playsInline className="w-full h-full object-cover block">
+                <source src={data.goAnywhere.video} type="video/mp4" />
+              </video>
+            ) : (
+              <img 
+                src={data.goAnywhere.image} 
+                alt="Go Anywhere" 
+                className="w-full h-full object-cover block" 
+              />
+            )}
           </div>
-          <div className="mt-8 space-y-4 w-full text-left lg:max-w-[1425px]">
+          <div className="mt-8 mb-8 space-y-4 w-full text-left lg:max-w-[1425px]">
             <h3 className="text-[28px] lg:text-[34px] leading-tight text-[#171A20] font-medium">{data.goAnywhere.title}</h3>
             <p className="text-[16px] lg:text-[20px] leading-normal lg:leading-[28px] text-[#5C5E62] font-normal">{data.goAnywhere.description}</p>
           </div>

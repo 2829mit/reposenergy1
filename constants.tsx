@@ -16,7 +16,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'datum-x',
     name: 'Datum X',
-    image: 'https://images.unsplash.com/photo-1621905252507-b354bcadcabc?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767087445/New_Project_7_qv8zju.png',
     description: 'Extreme efficiency'
   },
   {
@@ -78,6 +78,13 @@ export interface CarouselItem {
   image?: string;
 }
 
+export interface ProductPageFeature {
+  title: string;
+  description: string;
+  image: string;
+  video?: string;
+}
+
 export interface ProductPageContent {
   hero: {
     title: string;
@@ -98,26 +105,15 @@ export interface ProductPageContent {
     image?: string;
   };
   safetyItems: CarouselItem[];
-  feature1: { // Autonomous section
-    title: string;
-    description: string;
-    image: string;
-  };
-  feature2: { // Enterprise Intelligence section
-    title: string;
-    description: string;
-    image: string;
-  };
-  feature3: { // Tri-Motor Power section
-    title: string;
-    description: string;
-    image: string;
-  };
+  feature1: ProductPageFeature;
+  feature2: ProductPageFeature;
+  feature3: ProductPageFeature;
   efficientItems: CarouselItem[];
   goAnywhere: {
     title: string;
     description: string;
     image: string;
+    video?: string;
   };
 }
 
@@ -223,14 +219,61 @@ export const PRODUCT_PAGE_DATA: Record<string, ProductPageContent> = {
       { title: "Anti-Spill Technology", description: "Advanced shut-off valves and leak detection sensors prevent environmental hazards.", image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767016036/ChatGPT_Image_Dec_29_2025_07_06_34_PM_1_a5e2xn.jpg" },
       { title: "Fire Suppression", description: "Multi-layer thermal protection ensures maximum operational safety.", image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767016461/New_Project_4_atuuux.png" }
     ],
+    feature1: {
+      title: "Autonomous Distribution",
+      description: "Enter your destination and our ecosystem will manage your energy flow, from start to finish.",
+      image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-FSD-Desktop-NA-v2.png",
+      video: "https://res.cloudinary.com/dt8jmqu8d/video/upload/v1767072674/Untitled_video_-_Made_with_Clipchamp_2_mbtpv5.mp4"
+    },
+    feature3: {
+      title: "Tri-Motor Power",
+      description: "Advanced multi-pump configuration ensures rapid, consistent, and high-volume fuel delivery for heavy-duty industrial demands.",
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767076045/New_Project_5_twbfyu.png"
+    },
+    efficientItems: [
+      { 
+        title: "Refined Aerodynamics", 
+        description: "Every curve is engineered to reduce drag and maximize operational range.", 
+        image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767009465/New_Project_1_ke6kaq.png" 
+      },
+      { 
+        title: "Optimized Airflow", 
+        description: "Active shutters and hidden vents manage airflow to cooling systems with precise efficiency.", 
+        image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767077458/2_fprgpf.png" 
+      }
+    ],
+    goAnywhere: {
+      title: "Go Anywhere",
+      description: "Empower your fleet with the freedom to move. Our infrastructure ensures you're never more than a few minutes away from a high-speed node.",
+      image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Go-Anywhere-Desktop-NA.png",
+      video: "https://res.cloudinary.com/dt8jmqu8d/video/upload/v1767077790/Kashmir_Fuelling_video_um4gzx.mp4"
+    }
   },
   'datum-x': {
     ...BASE_RPS_CONTENT,
     hero: {
       title: 'Datum X',
       subtitle: 'Extreme efficiency system',
-      image: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-Hero-Desktop-US-v2.jpg'
+      image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767087445/New_Project_7_qv8zju.png'
     },
+    advancedEcosystemImage: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767086766/New_Project_10_p4lksc.png',
+    techItems: [
+      { 
+        title: "Precision Engineering", 
+        description: "Engineered with 3.0mm mild steel and anti-rust protection for unmatched durability and reliable storage of your fuel.", 
+        image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767006972/Gemini_Generated_Image_wpb9cywpb9cywpb9_ytocsm.png' 
+      },
+      { 
+        title: "All-Round Protection", 
+        description: "A custom-designed canopy encapsulates the entire system Tank, Dispensing Unit (DU), Repos Controller, shielding it from weather, accidents, and tampering system from external damage.", 
+        image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767009465/New_Project_1_ke6kaq.png' 
+      }
+    ],
+    performance: {
+      title: "Next Level Performance",
+      description: "Beyond distribution, our ecosystem provides an intelligent layer of data that helps you optimize your operations in real-time.",
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767012527/new-datumz_yqat6e.png"
+    }
   },
   'datum-s': {
     ...BASE_RPS_CONTENT,
