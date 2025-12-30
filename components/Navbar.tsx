@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import { MENU_ITEMS, PRODUCTS, SOLUTIONS, RESOURCES } from '../constants';
 import { MenuCategory, Page } from '../types';
@@ -18,7 +17,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
   };
 
   const getDropdownContent = () => {
-    if (activeMenu === 'Products') {
+    if (activeMenu === 'Solutions') {
       return (
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-12">
           {PRODUCTS.map((product) => (
@@ -36,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
               </div>
               <div>
                 <h3 className="text-lg font-medium text-black">{product.name}</h3>
-                <p className="text-xs text-gray-500 mt-1 uppercase tracking-wider">{product.description}</p>
+                <p className="text-[10px] text-gray-500 mt-1 uppercase tracking-wider">{product.description}</p>
               </div>
             </div>
           ))}
@@ -44,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
       );
     }
 
-    if (activeMenu === 'Solutions') {
+    if (activeMenu === 'Industries') {
       return (
         <div className="max-w-7xl mx-auto mt-12">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
@@ -89,7 +88,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
       );
     }
 
-    if (activeMenu) {
+    // Default dropdown content for other items if activeMenu is not Enterprise or null
+    if (activeMenu && activeMenu !== 'Fuel Intelligence Platform') {
       return (
         <div className="max-w-7xl mx-auto mt-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-medium text-gray-600">
@@ -130,9 +130,17 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
           {MENU_ITEMS.map((item) => (
             <button
               key={item}
-              onMouseEnter={() => onMenuHover(item as MenuCategory)}
+              onMouseEnter={() => {
+                // Remove dropdown trigger for Fuel Intelligence Platform
+                if (item !== 'Fuel Intelligence Platform') {
+                  onMenuHover(item as MenuCategory);
+                } else {
+                  onMenuHover(null);
+                }
+              }}
               onClick={() => {
                 if (item === 'About Us') onNavigate('about-us');
+                if (item === 'Fuel Intelligence Platform') onNavigate('fuel-intelligence');
               }}
               className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-200 hover:bg-black/5 text-gray-800 ${
                 activeMenu === item ? 'text-black bg-black/5' : ''
@@ -161,7 +169,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
       <div 
         ref={dropdownRef}
         className={`hidden lg:block absolute top-0 left-0 right-0 bg-white transition-all duration-500 ease-in-out overflow-hidden shadow-2xl ${
-          activeMenu ? 'max-h-[70vh] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+          activeMenu && activeMenu !== 'Fuel Intelligence Platform' ? 'max-h-[70vh] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
         }`}
       >
         <div className="pt-[56px] pb-16 px-12">
@@ -199,9 +207,11 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
                   if (item === 'About Us') {
                     onNavigate('about-us');
                     setIsMobileMenuOpen(false);
-                  }
-                  if (item === 'Products' || item === 'Solutions' || item === 'Resources') {
-                    // Stay open or handle sub-menus in mobile later
+                  } else if (item === 'Fuel Intelligence Platform') {
+                    onNavigate('fuel-intelligence');
+                    setIsMobileMenuOpen(false);
+                  } else if (item === 'Solutions' || item === 'Industries' || item === 'Resources') {
+                    // Submenus handled below
                   } else {
                     setIsMobileMenuOpen(false);
                   }
@@ -211,7 +221,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
               </button>
               
               {/* Mobile Submenu for specific items */}
-              {item === 'Solutions' && isMobileMenuOpen && (
+              {item === 'Industries' && isMobileMenuOpen && (
                 <div className="flex flex-col space-y-4 mt-4 ml-4">
                   {SOLUTIONS.map(sol => (
                     <div 
@@ -223,12 +233,31 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
                       }}
                     >
                       <div className="w-12 h-12 rounded-md overflow-hidden bg-gray-100">
-                        <img src={sol.image} className="w-full h-full object-cover" />
+                        <img src={sol.image} className="w-full h-full object-cover" alt={sol.name} />
                       </div>
                       <span className="text-lg text-gray-500">{sol.name}</span>
                     </div>
                   ))}
                 </div>
+              )}
+              {item === 'Solutions' && isMobileMenuOpen && (
+                 <div className="flex flex-col space-y-4 mt-4 ml-4">
+                   {PRODUCTS.map(p => (
+                     <div 
+                       key={p.id} 
+                       className="flex items-center space-x-4 cursor-pointer"
+                       onClick={() => {
+                         onNavigate(p.id as Page);
+                         setIsMobileMenuOpen(false);
+                       }}
+                     >
+                       <div className="w-12 h-12 rounded-md overflow-hidden bg-gray-100">
+                         <img src={p.image} className="w-full h-full object-cover" alt={p.name} />
+                       </div>
+                       <span className="text-lg text-gray-500">{p.name}</span>
+                     </div>
+                   ))}
+                 </div>
               )}
               {item === 'Resources' && isMobileMenuOpen && (
                 <div className="flex flex-col space-y-4 mt-4 ml-4">
