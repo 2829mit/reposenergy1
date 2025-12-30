@@ -51,6 +51,9 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
             {SOLUTIONS.map((sol) => (
               <div 
                 key={sol.name} 
+                onClick={() => {
+                  if (sol.id) onNavigate(sol.id as Page);
+                }}
                 className="group cursor-pointer flex flex-col items-center text-center space-y-4"
               >
                 <div className="w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-50">
@@ -211,7 +214,14 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
               {item === 'Solutions' && isMobileMenuOpen && (
                 <div className="flex flex-col space-y-4 mt-4 ml-4">
                   {SOLUTIONS.map(sol => (
-                    <div key={sol.name} className="flex items-center space-x-4">
+                    <div 
+                      key={sol.name} 
+                      className="flex items-center space-x-4 cursor-pointer"
+                      onClick={() => {
+                        if (sol.id) onNavigate(sol.id as Page);
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
                       <div className="w-12 h-12 rounded-md overflow-hidden bg-gray-100">
                         <img src={sol.image} className="w-full h-full object-cover" />
                       </div>
@@ -234,7 +244,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
               {PRODUCTS.map((p) => (
                 <div 
                   key={p.id} 
-                  className="flex flex-col items-center p-2 rounded-lg bg-gray-50 active:bg-gray-100 transition-colors"
+                  className="flex flex-col items-center p-2 rounded-lg bg-gray-50 active:bg-gray-100 transition-colors cursor-pointer"
                   onClick={() => {
                     onNavigate(p.id as Page);
                     setIsMobileMenuOpen(false);

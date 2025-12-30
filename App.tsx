@@ -1,12 +1,13 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustedBrands from './components/TrustedBrands';
 import ProductDetailPage from './components/RPSPage';
 import AboutUsPage from './components/AboutUsPage';
+import IndustrySolutionPage from './components/InfrastructurePage';
 import Footer from './components/Footer';
 import { MenuCategory, Page } from './types';
+import { INFRASTRUCTURE_PAGE_DATA, MANUFACTURING_PAGE_DATA, LOGISTICS_PAGE_DATA, MINING_PAGE_DATA } from './constants';
 
 const App: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState<MenuCategory>(null);
@@ -54,6 +55,22 @@ const App: React.FC = () => {
           onReposPayClick={() => console.log('Repos Pay clicked')}
         />
       );
+    }
+
+    if (currentPage === 'infrastructure') {
+      return <IndustrySolutionPage data={INFRASTRUCTURE_PAGE_DATA} />;
+    }
+
+    if (currentPage === 'manufacturing') {
+      return <IndustrySolutionPage data={MANUFACTURING_PAGE_DATA} />;
+    }
+
+    if (currentPage === 'logistics') {
+      return <IndustrySolutionPage data={LOGISTICS_PAGE_DATA} />;
+    }
+
+    if (currentPage === 'mining') {
+      return <IndustrySolutionPage data={MINING_PAGE_DATA} />;
     }
 
     return <ProductDetailPage productId={currentPage} />;

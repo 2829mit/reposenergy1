@@ -1,10 +1,8 @@
-
 import React from 'react';
 
 const Footer: React.FC = () => {
   const links = [
     'Privacy & Legal',
-    'Vehicle Recalls',
     'Contact',
     'News',
     'Get Updates',

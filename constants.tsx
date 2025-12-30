@@ -4,8 +4,8 @@ export const PRODUCTS: Product[] = [
   {
     id: 'rps',
     name: 'RPS',
-    image: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-Hero-Desktop-US-v2.jpg',
-    description: 'Repos Power Station'
+    image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767098040/18_qbq2dn.png',
+    description: 'Repos Portable Station'
   },
   {
     id: 'datum-z',
@@ -22,40 +22,46 @@ export const PRODUCTS: Product[] = [
   {
     id: 'datum-s',
     name: 'Datum S',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767098086/Screenshot_2025-12-30_170348_l0fhth.png',
     description: 'Standard smart node'
   },
   {
     id: 'rfs',
     name: 'RFS',
-    image: 'https://images.unsplash.com/photo-1545459720-aac8309b4efc?auto=format&fit=crop&q=80&w=800',
+    image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767095542/19_xwtskk.png',
     description: 'Repos Fuel Station'
   }
 ];
 
 export interface Solution {
+  id: string;
   name: string;
   image: string;
 }
 
 export const SOLUTIONS: Solution[] = [
   {
+    id: 'infrastructure',
     name: 'Infrastructure',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800'
   },
   {
+    id: 'logistics',
     name: 'Logistics',
-    image: 'https://images.unsplash.com/photo-1519003722824-192d992a6053?auto=format&fit=crop&q=80&w=800'
+    image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767098797/logistics_ibnrlh.png'
   },
   {
+    id: 'mining',
     name: 'Mining',
-    image: 'https://images.unsplash.com/photo-1578307336416-0c493ed7a064?auto=format&fit=crop&q=80&w=800'
+    image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767098790/mining_fybp3f.png'
   },
   {
     name: 'Manufacturing',
+    id: 'manufacturing',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800'
   },
   {
+    id: 'gensets',
     name: 'Gensets',
     image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800'
   }
@@ -76,6 +82,7 @@ export interface CarouselItem {
   description: string;
   video?: string;
   image?: string;
+  items?: string[];
 }
 
 export interface ProductPageFeature {
@@ -115,6 +122,34 @@ export interface ProductPageContent {
     image: string;
     video?: string;
   };
+}
+
+export interface IndustryPageContent {
+  hero: {
+    title: string;
+    subtitle: string;
+    image: string;
+  };
+  problemStatement: {
+    title: string;
+    description: string;
+  };
+  stats: {
+    label: string;
+    value: string;
+    unit?: string;
+  }[];
+  pillars: {
+    id: string;
+    title: string;
+    description: string;
+    items: string[];
+    image: string;
+  }[];
+  benefits: {
+    title: string;
+    icon: string;
+  }[];
 }
 
 const COMMON_VIDEOS = {
@@ -186,8 +221,8 @@ export const PRODUCT_PAGE_DATA: Record<string, ProductPageContent> = {
     ...BASE_RPS_CONTENT,
     hero: {
       title: 'RPS',
-      subtitle: 'Repos Power Station',
-      image: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-Hero-Desktop-US-v2.jpg'
+      subtitle: 'Repos Portable Station',
+      image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767098040/18_qbq2dn.png'
     },
   },
   'datum-z': {
@@ -273,6 +308,52 @@ export const PRODUCT_PAGE_DATA: Record<string, ProductPageContent> = {
       title: "Next Level Performance",
       description: "Beyond distribution, our ecosystem provides an intelligent layer of data that helps you optimize your operations in real-time.",
       image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767012527/new-datumz_yqat6e.png"
+    },
+    safetyItems: [
+      { 
+        title: "Anti-Spill Technology", 
+        description: "Advanced shut-off valves and leak detection sensors prevent environmental hazards.", 
+        image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767092234/New_Project_12_dompzi.png" 
+      },
+      { 
+        title: "Fire Suppression", 
+        description: "Multi-layer thermal protection ensures maximum operational safety.", 
+        image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767092548/New_Project_13_l3umfu.png" 
+      }
+    ],
+    feature1: {
+      title: "Autonomous Distribution",
+      description: "Enter your destination and our ecosystem will manage your energy flow, from start to finish.",
+      image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-FSD-Desktop-NA-v2.png",
+      video: "https://res.cloudinary.com/dt8jmqu8d/video/upload/v1767072674/Untitled_video_-_Made_with_Clipchamp_2_mbtpv5.mp4"
+    },
+    feature2: {
+      title: "Enterprise Intelligence",
+      description: "A comprehensive view of your entire energy distribution network in real-time.",
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1764218338/Screenshot_2025-11-27_100831_qvnqx7.png"
+    },
+    feature3: {
+      title: "Tri-Motor Power",
+      description: "Advanced multi-pump configuration ensures rapid, consistent, and high-volume fuel delivery for heavy-duty industrial demands.",
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767076045/New_Project_5_twbfyu.png"
+    },
+    efficientItems: [
+      { 
+        title: "Refined Aerodynamics", 
+        description: "Every curve is engineered to reduce drag and maximize operational range.", 
+        image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767093507/New_Project_14_mgvde9.png" 
+      },
+      { 
+        title: "Optimized Airflow", 
+        description: "Active shutters and hidden vents manage airflow to cooling systems with precise efficiency.", 
+        image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767077458/2_fprgpf.png" 
+      }
+    ],
+    goAnywhere: {
+      title: "Go Anywhere",
+      description: "Empower your fleet with the freedom to move. Our infrastructure ensures you're never more than a few minutes away from a high-speed node.",
+      image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Go-Anywhere-Desktop-NA.png",
+      video: "https://res.cloudinary.com/dt8jmqu8d/video/upload/v1767077790/Kashmir_Fuelling_video_um4gzx.mp4"
     }
   },
   'datum-s': {
@@ -280,7 +361,7 @@ export const PRODUCT_PAGE_DATA: Record<string, ProductPageContent> = {
     hero: {
       title: 'Datum S',
       subtitle: 'Standard smart distribution node',
-      image: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-Hero-Desktop-US-v2.jpg'
+      image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767098086/Screenshot_2025-12-30_170348_l0fhth.png'
     },
   },
   'rfs': {
@@ -288,7 +369,219 @@ export const PRODUCT_PAGE_DATA: Record<string, ProductPageContent> = {
     hero: {
       title: 'RFS',
       subtitle: 'Repos Fuel Station',
-      image: 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-Hero-Desktop-US-v2.jpg'
+      image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767095542/19_xwtskk.png'
     },
   }
+};
+
+export const INFRASTRUCTURE_PAGE_DATA: IndustryPageContent = {
+  hero: {
+    title: 'Construction & Infra',
+    subtitle: 'Fueling your projects, without the chaos.',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2400'
+  },
+  problemStatement: {
+    title: "Is fuel holding your operations back?",
+    description: "You've got the blueprints and the crews ready. But before the first foundation is laid, there's one stubborn problem: Diesel. From emergency runs to unrecorded refills, fuel chaos delays timelines and inflates costs. Repos has your back."
+  },
+  stats: [
+    { label: 'Efficiency Gain', value: '30', unit: '%' },
+    { label: 'Fuel Loss Prevention', value: '100', unit: '%' },
+    { label: 'Uptime', value: '24/7' }
+  ],
+  pillars: [
+    {
+      id: "procurement",
+      title: "Fuel Procurement Made Simple",
+      description: "Get diesel delivered straight to your site. Safely, legally, and right on time.",
+      items: ["Doorstep fuel delivery", "Fully legal and PESO-compliant", "Real-time order tracking", "Easy ordering through the Repos App"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767095542/19_xwtskk.png"
+    },
+    {
+      id: "operations",
+      title: "Fuel Operations Made Smarter",
+      description: "Meet Repos DATUM — your smart fuel storage and dispensing device built for heavy machines.",
+      items: ["Track fuel levels in real time", "Ensure zero fuel theft", "Smart sensors to prevent fire, leakage", "Machine-wise fuel consumption tracking"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767000351/Firefly_Gemini_Flash_The_attached_image_is_our_product_datum_used_for_refilling._it_is_a_storage_tank_of_968554_pf44gm.png"
+    },
+    {
+      id: "payments",
+      title: "Fuel Payments Made Seamless",
+      description: "Fuel now. Pay later. Keep your equipment running without cash-flow stress with Repos Pay.",
+      items: ["15 + 7 days interest-free credit", "Flexible payment options", "Easy cash-flow management", "No downtime due to shortages"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767096944/Untitled-1_zgsach.jpg"
+    },
+    {
+      id: "management",
+      title: "Fueling at Your Fingertips",
+      description: "Get full visibility of your fueling with the Repos App. Manage diesel for all your machines from anywhere.",
+      items: ["Place fuel orders instantly", "Track deliveries live", "Monitor fuel levels & usage", "Access real-time reports securely"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767096629/Analytics_bmfzcz.png"
+    }
+  ],
+  benefits: [
+    { title: "No shortages", icon: "https://cdn-icons-png.flaticon.com/512/3233/3233829.png" },
+    { title: "Zero theft", icon: "https://cdn-icons-png.flaticon.com/512/3067/3067451.png" },
+    { title: "No manual tracking", icon: "https://cdn-icons-png.flaticon.com/512/3208/3208615.png" },
+    { title: "No cash-flow stress", icon: "https://cdn-icons-png.flaticon.com/512/2845/2845811.png" }
+  ]
+};
+
+export const MANUFACTURING_PAGE_DATA: IndustryPageContent = {
+  hero: {
+    title: 'Manufacturing Industry',
+    subtitle: 'Fueling your factories, keeping production humming 24/7.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2400'
+  },
+  problemStatement: {
+    title: "Is fuel holding your operations back?",
+    description: "You’ve got the orders stacked and the machines primed to run. But before the first shift kicks off—there’s one stubborn problem standing between you and seamless output: Diesel. Fuel chaos disrupts quotas and spikes costs."
+  },
+  stats: [
+    { label: 'Uptime', value: '100', unit: '%' },
+    { label: 'Cost Reduction', value: '15', unit: '%' },
+    { label: 'Distribution', value: 'Smart' }
+  ],
+  pillars: [
+    {
+      id: "procurement",
+      title: "Fuel Procurement Made Simple",
+      description: "Get diesel delivered straight to your factory. Safely, legally, and right on time.",
+      items: ["Doorstep fuel delivery", "Fully legal and PESO-compliant", "Real-time order tracking", "Easy ordering through the Repos App"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767095542/19_xwtskk.png"
+    },
+    {
+      id: "operations",
+      title: "Fuel Operations Made Smarter",
+      description: "Meet Repos DATUM — your smart fuel storage and dispensing device built for heavy industrial machinery.",
+      items: ["Track fuel levels in real time", "Ensure zero fuel theft", "Smart sensors to prevent fire, overfill, leakage", "Machine-wise fuel consumption tracking"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767000351/Firefly_Gemini_Flash_The_attached_image_is_our_product_datum_used_for_refilling._it_is_a_storage_tank_of_968554_pf44gm.png"
+    },
+    {
+      id: "payments",
+      title: "Fuel Payments Made Seamless",
+      description: "Fuel now. Pay later. Keep your equipment running without cash-flow stress with Repos Pay.",
+      items: ["15 + 7 days interest-free credit", "Flexible payment options", "Easy cash-flow management", "No downtime due to fuel shortages"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767096944/Untitled-1_zgsach.jpg"
+    },
+    {
+      id: "management",
+      title: "Fuelling at Your Fingertips",
+      description: "Get full visibility of your fueling with the Repos App. Manage diesel for all your factory machines from anywhere.",
+      items: ["Place fuel orders instantly", "Track deliveries live", "Monitor fuel levels, usage & quality", "Access real-time reports securely"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767096629/Analytics_bmfzcz.png"
+    }
+  ],
+  benefits: [
+    { title: "No fuel shortages", icon: "https://cdn-icons-png.flaticon.com/512/3233/3233829.png" },
+    { title: "Zero theft", icon: "https://cdn-icons-png.flaticon.com/512/3067/3067451.png" },
+    { title: "No manual tracking", icon: "https://cdn-icons-png.flaticon.com/512/3208/3208615.png" },
+    { title: "No more cash-flow stress", icon: "https://cdn-icons-png.flaticon.com/512/2845/2845811.png" }
+  ]
+};
+
+export const LOGISTICS_PAGE_DATA: IndustryPageContent = {
+  hero: {
+    title: 'Transport & Logistics',
+    subtitle: 'Keep your fleet moving, one smart mile at a time.',
+    image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767098797/logistics_ibnrlh.png'
+  },
+  problemStatement: {
+    title: "Is fuel holding your fleet back?",
+    description: "You’ve got the schedules locked in and the drivers ready to roll. But even before the first mile is logged, there’s one stubborn problem standing between you and a smooth run: Diesel. Fuel chaos slows down your fleet."
+  },
+  stats: [
+    { label: 'Fleet Uptime', value: '99', unit: '%' },
+    { label: 'Operational Efficiency', value: '25', unit: '%' },
+    { label: 'Fuel Visibility', value: '100', unit: '%' }
+  ],
+  pillars: [
+    {
+      id: "procurement",
+      title: "Fuel Procurement Made Simple",
+      description: "Get diesel delivered straight to your fleet. Safely, legally, and right on time.",
+      items: ["Doorstep fuel delivery", "Fully legal and PESO-compliant", "Real-time order tracking", "Easy ordering through the Repos App"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767095542/19_xwtskk.png"
+    },
+    {
+      id: "operations",
+      title: "Fuel Operations Made Smarter",
+      description: "Meet Repos DATUM — your smart fuel storage and dispensing device built for heavy machines and vehicles.",
+      items: ["Track fuel levels in real time", "Ensure zero fuel theft", "Smart sensors to prevent fire, overfill, leakage", "Machine-wise fuel consumption tracking"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767000351/Firefly_Gemini_Flash_The_attached_image_is_our_product_datum_used_for_refilling._it_is_a_storage_tank_of_968554_pf44gm.png"
+    },
+    {
+      id: "payments",
+      title: "Fuel Payments Made Seamless",
+      description: "Fuel now. Pay later. Keep your logistics operations running without cash-flow stress with Repos Pay.",
+      items: ["15 + 7 days interest-free credit", "Flexible payment options", "Easy cash-flow management", "No downtime due to fuel shortage"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767096944/Untitled-1_zgsach.jpg"
+    },
+    {
+      id: "management",
+      title: "Fuelling at Your Fingertips",
+      description: "Get full visibility of your fueling with the Repos App. Manage diesel for every vehicle of your fleet from anywhere.",
+      items: ["Place fuel orders instantly", "Track deliveries live", "Monitor fuel levels, usage & quality", "Access real-time reports securely"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767096629/Analytics_bmfzcz.png"
+    }
+  ],
+  benefits: [
+    { title: "No fuel shortages", icon: "https://cdn-icons-png.flaticon.com/512/3233/3233829.png" },
+    { title: "Zero theft", icon: "https://cdn-icons-png.flaticon.com/512/3067/3067451.png" },
+    { title: "No manual tracking", icon: "https://cdn-icons-png.flaticon.com/512/3208/3208615.png" },
+    { title: "No more cash-flow stress", icon: "https://cdn-icons-png.flaticon.com/512/2845/2845811.png" }
+  ]
+};
+
+export const MINING_PAGE_DATA: IndustryPageContent = {
+  hero: {
+    title: 'Mining Industry',
+    subtitle: 'Uninterrupted power for high-intensity extraction.',
+    image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767098790/mining_fybp3f.png'
+  },
+  problemStatement: {
+    title: "Remote sites shouldn't mean energy chaos.",
+    description: "Mining happens in some of the earth's toughest terrains. When fuel runs low in a remote pit, production stops and millions are lost. Repos bridges the gap with intelligent distribution that thrives in extreme environments."
+  },
+  stats: [
+    { label: 'Fuel Loss Avoided', value: '100', unit: '%' },
+    { label: 'Site Efficiency', value: '40', unit: '%' },
+    { label: 'Operational Uptime', value: '24/7' }
+  ],
+  pillars: [
+    {
+      id: "procurement",
+      title: "Remote Procurement Simplified",
+      description: "Logistics to the most remote sites handled with PESO-compliant precision.",
+      items: ["Extreme terrain delivery", "Legal compliance guaranteed", "Satellite-based order tracking", "Bulk order optimization"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767095542/19_xwtskk.png"
+    },
+    {
+      id: "operations",
+      title: "Smart Storage for Remote Sites",
+      description: "Repos DATUM provides ruggedized fuel storage that monitors every drop in harsh mining environments.",
+      items: ["Live inventory monitoring", "Tamper-proof security", "Environmental leak sensors", "Heavy machine consumption analytics"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767000351/Firefly_Gemini_Flash_The_attached_image_is_our_product_datum_used_for_refilling._it_is_a_storage_tank_of_968554_pf44gm.png"
+    },
+    {
+      id: "payments",
+      title: "Uninterrupted Cash Flow",
+      description: "Never pause extraction due to payment delays. Repos Pay keeps your heavy machines running.",
+      items: ["Custom credit cycles", "Instant digital payments", "Transparent billing across sites", "Consolidated energy accounting"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767096944/Untitled-1_zgsach.jpg"
+    },
+    {
+      id: "management",
+      title: "Complete Fleet Control",
+      description: "Manage energy for a massive fleet of excavators, haulers, and gensets from a single dashboard.",
+      items: ["Fleet-wide fuel visibility", "Predictive refill alerts", "Usage efficiency reports", "Secure cloud data access"],
+      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767096629/Analytics_bmfzcz.png"
+    }
+  ],
+  benefits: [
+    { title: "Remote reliability", icon: "https://cdn-icons-png.flaticon.com/512/3233/3233829.png" },
+    { title: "Zero pilferage", icon: "https://cdn-icons-png.flaticon.com/512/3067/3067451.png" },
+    { title: "Digital tracking", icon: "https://cdn-icons-png.flaticon.com/512/3208/3208615.png" },
+    { title: "Credit facility", icon: "https://cdn-icons-png.flaticon.com/512/2845/2845811.png" }
+  ]
 };

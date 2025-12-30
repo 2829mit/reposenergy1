@@ -1,4 +1,3 @@
-
 export interface Product {
   id: string;
   name: string;
@@ -8,4 +7,4 @@ export interface Product {
 
 export type MenuCategory = 'Products' | 'Solutions' | 'Resources' | 'Enterprise' | 'About Us' | 'Careers' | null;
 
-export type Page = 'home' | 'rps' | 'datum-z' | 'datum-x' | 'datum-s' | 'rfs' | 'about-us';
+export type Page = 'home' | 'rps' | 'datum-z' | 'datum-x' | 'datum-s' | 'rfs' | 'about-us' | 'infrastructure' | 'manufacturing' | 'logistics' | 'mining';
