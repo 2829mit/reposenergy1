@@ -104,7 +104,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({
          {/* Image Side */}
          <div className="lg:w-1/2 h-[500px] lg:h-auto relative overflow-hidden bg-gray-50">
             <img 
-              src="https://res.cloudinary.com/dt8jmqu8d/image/upload/v1764310562/Aditi-Bhosale-Walunj-Chetan-Walunj-scaled-1_ntm0gd.jpg" 
+              src="https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767118536/New_Project_b75apx.png" 
               alt="Chetan and Aditi Walunj" 
               className="absolute inset-0 w-full h-full object-contain object-center"
             />
