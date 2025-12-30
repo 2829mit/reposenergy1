@@ -37,10 +37,7 @@ const Hero: React.FC = () => {
         {/* Bottom Detailed Branding */}
         <div className="flex flex-col items-center space-y-3">
           <p className="text-[12px] md:text-[14px] font-medium tracking-[0.45em] uppercase opacity-70 leading-relaxed">
-            Intelligent Energy Distribution
-          </p>
-          <p className="text-[12px] md:text-[14px] font-medium tracking-[0.45em] uppercase opacity-70 leading-relaxed">
-            Ecosystem
+            Repos Fuel Intelligence Platform
           </p>
         </div>
       </div>

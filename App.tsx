@@ -6,6 +6,8 @@ import ProductDetailPage from './components/RPSPage';
 import AboutUsPage from './components/AboutUsPage';
 import IndustrySolutionPage from './components/InfrastructurePage';
 import FuelIntelligencePage from './components/FuelIntelligencePage';
+import LifeAtReposPage from './components/LifeAtReposPage';
+import WorkAtReposPage from './components/WorkAtReposPage';
 import Footer from './components/Footer';
 import { MenuCategory, Page } from './types';
 import { INFRASTRUCTURE_PAGE_DATA, MANUFACTURING_PAGE_DATA, LOGISTICS_PAGE_DATA, MINING_PAGE_DATA, GENSETS_PAGE_DATA } from './constants';
@@ -38,7 +40,7 @@ const App: React.FC = () => {
               playsInline
               className="w-full h-full object-cover opacity-90"
             >
-              <source src="https://res.cloudinary.com/dt8jmqu8d/video/upload/v1764178964/Transforming_Energy_Distribution_through_Repos_Ecosystem_ayqp2x.mp4" type="video/pm4" />
+              <source src="https://res.cloudinary.com/dt8jmqu8d/video/upload/v1764178964/Transforming_Energy_Distribution_through_Repos_Ecosystem_ayqp2x.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
@@ -60,6 +62,14 @@ const App: React.FC = () => {
 
     if (currentPage === 'fuel-intelligence') {
       return <FuelIntelligencePage onNavigate={handleNavigate} />;
+    }
+
+    if (currentPage === 'life-at-repos') {
+      return <LifeAtReposPage />;
+    }
+
+    if (currentPage === 'work-at-repos') {
+      return <WorkAtReposPage />;
     }
 
     if (currentPage === 'infrastructure') {

@@ -14,7 +14,7 @@ export interface Solution {
 
 export type MenuCategory = 'Fuel Intelligence Platform' | 'Industries' | 'Solutions' | 'Resources' | 'About Us' | 'Careers' | null;
 
-export type Page = 'home' | 'rps' | 'datum-z' | 'datum-x' | 'datum-s' | 'rfs' | 'about-us' | 'infrastructure' | 'manufacturing' | 'logistics' | 'mining' | 'gensets' | 'fuel-intelligence';
+export type Page = 'home' | 'rps' | 'datum-z' | 'datum-x' | 'datum-s' | 'rfs' | 'about-us' | 'infrastructure' | 'manufacturing' | 'logistics' | 'mining' | 'gensets' | 'fuel-intelligence' | 'life-at-repos' | 'work-at-repos';
 
 export interface IndustryPageContent {
   id: string;

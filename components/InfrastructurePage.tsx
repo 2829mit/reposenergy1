@@ -24,7 +24,7 @@ const IndustrySolutionPage: React.FC<IndustrySolutionPageProps> = ({ data }) => 
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
     const sections = document.querySelectorAll('.animate-section');
@@ -73,7 +73,7 @@ const IndustrySolutionPage: React.FC<IndustrySolutionPageProps> = ({ data }) => 
         </div>
       </section>
 
-      {/* 2. Context & Asset Marquee (Dark Mode) */}
+      {/* 2. Context & Asset Marquee */}
       <section id="context" className="py-0 bg-[#050505] animate-section border-b border-white/5">
         <div className="py-4 border-y border-white/10 overflow-hidden bg-white/5 backdrop-blur-sm">
            <div className="animate-marquee-left flex whitespace-nowrap items-center gap-16">
@@ -100,9 +100,8 @@ const IndustrySolutionPage: React.FC<IndustrySolutionPageProps> = ({ data }) => 
         </div>
       </section>
 
-      {/* 3. The Failure (Diagnostics Aesthetic) */}
+      {/* 3. The Failure (Diagnostics) */}
       <section id="failures" className="py-32 px-6 bg-[#0a0a0a] relative animate-section overflow-hidden">
-        {/* Abstract Background Grid */}
         <div className="absolute inset-0 opacity-10" 
              style={{ backgroundImage: 'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
         </div>
@@ -142,94 +141,102 @@ const IndustrySolutionPage: React.FC<IndustrySolutionPageProps> = ({ data }) => 
         </div>
       </section>
 
-      {/* 4. The Solution (Workflow Timeline Design) */}
-      <section id="solution" className="bg-white text-black py-32 animate-section relative overflow-hidden">
-         {/* Background Subtle Grid */}
+      {/* 4. The Solution (System Architecture Grid) */}
+      <section id="solution" className="bg-white text-black py-40 animate-section relative overflow-hidden">
+         {/* Tech Background Grid */}
          <div className="absolute inset-0 opacity-[0.03]" 
-              style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+              style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
          </div>
 
          <div className={`relative max-w-7xl mx-auto px-6 transition-all duration-1000 ${isVisible('solution') ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="text-center mb-24 max-w-3xl mx-auto">
-               <span className="text-blue-600 font-bold tracking-[0.2em] uppercase text-xs mb-6 block">System Deployment</span>
-               <h2 className="text-[48px] md:text-[64px] font-bold leading-[1] mb-8 tracking-tighter">
-                 {data.useCases.title}
-               </h2>
-               <p className="text-xl text-gray-600 font-light leading-relaxed">
-                 {data.useCases.description}
-               </p>
+            <div className="flex flex-col md:flex-row justify-between items-end mb-24">
+              <div className="max-w-2xl">
+                <span className="text-blue-600 font-bold tracking-[0.2em] uppercase text-xs mb-6 block">System Architecture</span>
+                <h2 className="text-[48px] md:text-[64px] font-bold leading-[1] mb-6 tracking-tighter">
+                  {data.useCases.title}
+                </h2>
+                <p className="text-xl text-gray-600 font-light leading-relaxed">
+                  {data.useCases.description}
+                </p>
+              </div>
+              <div className="hidden md:block">
+                 <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400">
+                    <span>Protocol Status</span>
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span className="text-green-600">Active</span>
+                 </div>
+              </div>
             </div>
 
-            {/* Timeline Container */}
-            <div className="relative">
-               {/* Central Line - Only visible on LG screens */}
-               <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gray-100 -translate-x-1/2"></div>
-
-               <div className="space-y-12 lg:space-y-24">
-                  {data.useCases.items.map((item, idx) => (
-                    <div key={idx} className={`flex flex-col lg:flex-row items-center gap-12 ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
-                       
-                       {/* Timeline Node - Center */}
-                       <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border-4 border-gray-100 items-center justify-center z-10">
-                          <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+            {/* Architecture Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-l border-gray-200">
+               {data.useCases.items.map((item, idx) => (
+                 <div key={idx} className="relative group p-10 border-r border-b border-gray-200 hover:bg-gray-50 transition-all duration-300">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                    
+                    <div className="mb-8 flex justify-between items-start">
+                       <span className="text-4xl font-bold text-gray-200 group-hover:text-blue-200 transition-colors font-mono">0{idx + 1}</span>
+                       <div className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-600 transition-colors">
+                          <svg className="w-3 h-3 text-gray-400 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                        </div>
-
-                       {/* Content Side */}
-                       <div className="w-full lg:w-1/2 flex flex-col lg:items-end">
-                          <div className={`relative bg-gray-50 p-8 md:p-12 rounded-2xl border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 w-full lg:max-w-xl group ${idx % 2 !== 0 ? 'lg:text-left' : 'lg:text-right'}`}>
-                             {/* Connector Line for Desktop */}
-                             <div className={`hidden lg:block absolute top-1/2 w-12 h-[2px] bg-gray-100 ${idx % 2 !== 0 ? '-left-12' : '-right-12'}`}></div>
-
-                             <div className={`flex flex-col ${idx % 2 !== 0 ? 'lg:items-start' : 'lg:items-end'}`}>
-                                <span className="text-6xl font-bold text-gray-200 mb-4 font-mono group-hover:text-blue-100 transition-colors">0{idx + 1}</span>
-                                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                                <p className="text-gray-600 leading-relaxed font-light text-lg">
-                                  {item.description}
-                                </p>
-                             </div>
-                          </div>
-                       </div>
-                       
-                       {/* Empty Spacer Side */}
-                       <div className="hidden lg:block w-1/2"></div>
                     </div>
-                  ))}
+                    
+                    <h3 className="text-xl font-bold mb-4 pr-4">{item.title}</h3>
+                    <p className="text-gray-500 leading-relaxed font-light text-sm">
+                      {item.description}
+                    </p>
+                 </div>
+               ))}
+            </div>
+
+            <div className="mt-16 p-8 bg-gray-50 border border-gray-200 rounded-lg flex flex-col md:flex-row items-center justify-between gap-8">
+               <div className="flex flex-col">
+                  <span className="font-bold text-sm uppercase tracking-widest text-gray-400 mb-2">INTEGRATION LAYER</span>
+                  <p className="text-lg text-gray-800">Seamlessly connects with your existing ERP & Fleet Management Systems.</p>
+               </div>
+               <div className="flex gap-4 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" className="h-8" alt="SAP" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" className="h-8" alt="Azure" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" className="h-8" alt="AWS" />
                </div>
             </div>
          </div>
       </section>
 
-      {/* 5. Benefits & ROI (Financial Terminal Design) */}
-      <section id="benefits" className="py-32 px-6 bg-[#0f0f0f] animate-section border-t border-white/5 font-mono">
+      {/* 5. Benefits & ROI (FinTech Dashboard Aesthetic) */}
+      <section id="benefits" className="py-32 px-6 bg-[#0B0C10] animate-section border-t border-white/5 font-mono">
          <div className={`max-w-7xl mx-auto transition-all duration-1000 ${isVisible('benefits') ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="flex flex-col md:flex-row justify-between items-end mb-20 pb-8 border-b border-white/10">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-20 pb-8 border-b border-gray-800">
                <div>
-                  <span className="text-green-500 text-xs font-bold tracking-widest uppercase mb-2 block">/// LIVE METRICS</span>
+                  <span className="text-blue-400 text-xs font-bold tracking-widest uppercase mb-2 block">/// FINANCIAL PERFORMANCE</span>
                   <h2 className="text-[36px] md:text-[48px] font-bold text-white tracking-tighter">{data.benefits.title}</h2>
                </div>
                <div className="mt-6 md:mt-0 text-right">
-                  <div className="text-xs text-gray-500 uppercase tracking-widest mb-1">Status</div>
-                  <div className="flex items-center gap-2 justify-end">
-                     <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                     <span className="text-green-500 font-bold">OPTIMIZED</span>
-                  </div>
+                  <button className="text-xs text-gray-400 uppercase tracking-widest hover:text-white border-b border-transparent hover:border-white transition-all pb-1">
+                     Download Full Report ↗
+                  </button>
                </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                {data.benefits.items.map((item, idx) => (
-                 <div key={idx} className="bg-[#161616] p-10 hover:bg-[#1a1a1a] transition-colors border border-transparent hover:border-white/10 group">
-                    <div className="flex justify-between items-start mb-8">
-                       <span className="text-gray-600 text-xs uppercase tracking-widest">metric_0{idx + 1}</span>
-                       <svg className="w-4 h-4 text-gray-600 group-hover:text-green-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                 <div key={idx} className="relative bg-[#121418] rounded-xl p-8 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group overflow-hidden">
+                    {/* Background Chart Effect */}
+                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    
+                    <div className="flex justify-between items-start mb-6">
+                       <span className="text-gray-500 text-[10px] uppercase tracking-widest bg-gray-900 px-2 py-1 rounded">METRIC_0{idx + 1}</span>
+                       <span className="text-green-500 text-xs font-bold">▲ POSITIVE</span>
                     </div>
-                    <div className="mb-4">
-                       <span className="text-5xl md:text-6xl font-bold text-white tracking-tighter group-hover:text-green-400 transition-colors">
+                    
+                    <div className="mb-4 flex items-baseline gap-2">
+                       <span className="text-5xl md:text-6xl font-bold text-white tracking-tighter group-hover:text-blue-400 transition-colors">
                          {item.metric}
                        </span>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-300 mb-2 uppercase tracking-wide">{item.label}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed font-sans">
+                    
+                    <h3 className="text-lg font-bold text-gray-300 mb-3 tracking-wide">{item.label}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed font-sans border-t border-gray-800 pt-4 mt-4 group-hover:border-blue-500/30 transition-colors">
                        {item.description}
                     </p>
                  </div>
@@ -237,14 +244,21 @@ const IndustrySolutionPage: React.FC<IndustrySolutionPageProps> = ({ data }) => 
             </div>
 
             {/* Executive Summary / CTA */}
-            <div className="mt-20 bg-blue-900/20 border border-blue-500/20 p-8 md:p-12 rounded-sm flex flex-col md:flex-row items-center justify-between font-sans">
-               <div className="mb-8 md:mb-0">
-                  <h3 className="text-2xl font-bold text-white mb-2">Ready to deploy the protocol?</h3>
-                  <p className="text-blue-200/60">Transform your operations today with Repos.</p>
+            <div className="mt-16 bg-gradient-to-r from-blue-900/40 to-black border border-blue-500/30 p-10 rounded-2xl flex flex-col md:flex-row items-center justify-between font-sans relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
+               
+               <div className="relative z-10 mb-8 md:mb-0 max-w-xl">
+                  <h3 className="text-2xl font-bold text-white mb-2">Projected Impact Analysis</h3>
+                  <p className="text-blue-200/70 text-sm leading-relaxed">
+                    Based on average fleet size of 50 assets, implementation of Repos Protocol results in full ROI achievement within <span className="text-white font-bold">4.2 months</span>.
+                  </p>
                </div>
-               <button className="px-10 py-4 bg-white text-black font-bold uppercase tracking-widest text-xs hover:bg-gray-200 transition-colors flex items-center gap-3">
-                 Initialize <span className="text-lg">→</span>
-               </button>
+               
+               <div className="relative z-10 flex gap-4">
+                 <button className="px-8 py-4 bg-white text-black font-bold uppercase tracking-widest text-xs rounded hover:bg-gray-200 transition-colors flex items-center gap-3 shadow-lg hover:shadow-xl hover:-translate-y-1">
+                   Start Audit <span className="text-lg">→</span>
+                 </button>
+               </div>
             </div>
          </div>
       </section>

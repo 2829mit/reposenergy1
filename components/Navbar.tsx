@@ -88,15 +88,29 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
       );
     }
 
-    // Default dropdown content for other items if activeMenu is not Enterprise or null
-    if (activeMenu && activeMenu !== 'Fuel Intelligence Platform') {
+    if (activeMenu === 'Careers') {
       return (
-        <div className="max-w-7xl mx-auto mt-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-medium text-gray-600">
-            <a href="#" className="hover:underline">Strategic Outlook</a>
-            <a href="#" className="hover:underline">Global Impact</a>
-            <a href="#" className="hover:underline">Integration Guide</a>
-            <a href="#" className="hover:underline">Sustainability Report</a>
+        <div className="max-w-5xl mx-auto mt-12 pb-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+            {[
+              { title: 'Life at Repos', desc: 'Culture, perks, and our way of life.', id: 'life-at-repos' },
+              { title: 'Work at Repos', desc: 'Solve hard problems that matter.', id: 'work-at-repos' },
+              { title: 'Teams at Repos', desc: 'Meet the minds behind the innovation.', id: null }
+            ].map((item) => (
+              <div 
+                key={item.title} 
+                className="group block cursor-pointer"
+                onClick={() => {
+                  if (item.id) onNavigate(item.id as Page);
+                }}
+              >
+                <h3 className="text-lg font-medium text-black mb-2 group-hover:text-blue-600 transition-colors flex items-center gap-2">
+                  {item.title}
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-blue-600 transform group-hover:translate-x-1 duration-300">→</span>
+                </h3>
+                <p className="text-sm text-gray-500">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       );
@@ -131,11 +145,11 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
             <button
               key={item}
               onMouseEnter={() => {
-                // Remove dropdown trigger for Fuel Intelligence Platform
-                if (item !== 'Fuel Intelligence Platform') {
-                  onMenuHover(item as MenuCategory);
-                } else {
+                // Remove dropdown trigger for Fuel Intelligence Platform and About Us
+                if (item === 'Fuel Intelligence Platform' || item === 'About Us') {
                   onMenuHover(null);
+                } else {
+                  onMenuHover(item as MenuCategory);
                 }
               }}
               onClick={() => {
@@ -169,7 +183,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
       <div 
         ref={dropdownRef}
         className={`hidden lg:block absolute top-0 left-0 right-0 bg-white transition-all duration-500 ease-in-out overflow-hidden shadow-2xl ${
-          activeMenu && activeMenu !== 'Fuel Intelligence Platform' ? 'max-h-[70vh] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+          activeMenu ? 'max-h-[70vh] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
         }`}
       >
         <div className="pt-[56px] pb-16 px-12">
@@ -210,7 +224,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
                   } else if (item === 'Fuel Intelligence Platform') {
                     onNavigate('fuel-intelligence');
                     setIsMobileMenuOpen(false);
-                  } else if (item === 'Solutions' || item === 'Industries' || item === 'Resources') {
+                  } else if (item === 'Solutions' || item === 'Industries' || item === 'Resources' || item === 'Careers') {
                     // Submenus handled below
                   } else {
                     setIsMobileMenuOpen(false);
@@ -262,6 +276,26 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
               {item === 'Resources' && isMobileMenuOpen && (
                 <div className="flex flex-col space-y-4 mt-4 ml-4">
                   {RESOURCES.map(res => <a key={res} href="#" className="text-lg text-gray-500">{res}</a>)}
+                </div>
+              )}
+              {item === 'Careers' && isMobileMenuOpen && (
+                <div className="flex flex-col space-y-4 mt-4 ml-4">
+                  {[
+                    {name: 'Life at Repos', id: 'life-at-repos'}, 
+                    {name: 'Work at Repos', id: 'work-at-repos'}, 
+                    {name: 'Teams at Repos', id: null}
+                  ].map(careerItem => (
+                    <div 
+                      key={careerItem.name} 
+                      className="text-lg text-gray-500 cursor-pointer"
+                      onClick={() => {
+                        if (careerItem.id) onNavigate(careerItem.id as Page);
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      {careerItem.name}
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
