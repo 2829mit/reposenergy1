@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
         {/* Top Text Cluster */}
         <div className="mb-4">
           <p className="text-[10px] md:text-[12px] font-medium tracking-[0.7em] uppercase opacity-60">
-            The New Standard
+            World's First Fuel Intelligence Platform
           </p>
         </div>
         
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
         {/* Bottom Detailed Branding */}
         <div className="flex flex-col items-center space-y-3">
           <p className="text-[12px] md:text-[14px] font-medium tracking-[0.45em] uppercase opacity-70 leading-relaxed">
-            Repos Fuel Intelligence Platform
+            For Mission Critical Businesses
           </p>
         </div>
       </div>
