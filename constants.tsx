@@ -16,7 +16,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'datum-x',
     name: 'Datum X',
-    image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767087445/New_Project_7_qv8zju.png',
+    image: 'https://res.cloudinary.com/djjp6zkxr/image/upload/v1767178680/datum_x_1_a087cq.png',
     description: 'Extreme efficiency'
   },
   {
@@ -196,7 +196,7 @@ export const PRODUCT_PAGE_DATA: Record<string, ProductPageContent> = {
     hero: {
       title: 'Datum Z',
       subtitle: 'Zero-loss smart distribution',
-      image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767009229/New_Project_2_upltrf.png'
+      image: 'https://res.cloudinary.com/djjp6zkxr/image/upload/v1767177819/datum_z_dw73nm.png'
     },
     stats: [
       { label: 'Speed', value: '120', unit: 'L/m' },
@@ -272,7 +272,7 @@ export const PRODUCT_PAGE_DATA: Record<string, ProductPageContent> = {
     hero: {
       title: 'Datum X',
       subtitle: 'Extreme Efficiency',
-      image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767087445/New_Project_7_qv8zju.png'
+      image: 'https://res.cloudinary.com/djjp6zkxr/image/upload/v1767178680/datum_x_1_a087cq.png'
     },
     stats: [
       { label: 'Speed', value: '120', unit: 'L/m' },
