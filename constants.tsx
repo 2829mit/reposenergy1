@@ -198,6 +198,11 @@ export const PRODUCT_PAGE_DATA: Record<string, ProductPageContent> = {
       subtitle: 'Zero-loss smart distribution',
       image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767009229/New_Project_2_upltrf.png'
     },
+    stats: [
+      { label: 'Speed', value: '120', unit: 'L/m' },
+      { label: 'Tracking', value: '100', unit: '%' },
+      { label: 'Monitoring', value: '24/7' }
+    ],
     advancedEcosystemImage: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767010323/Gemini_Generated_Image_228jyr228jyr228j_pdo14s.png',
     techItems: [
       { 
@@ -218,47 +223,128 @@ export const PRODUCT_PAGE_DATA: Record<string, ProductPageContent> = {
     },
     safetyItems: [
       { 
-        title: "Anti-Spill Technology", 
-        description: "Advanced shut-off valves and leak detection sensors prevent environmental hazards.", 
-        image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767092234/New_Project_12_dompzi.png" 
+        title: "Smart Controller", 
+        description: "The brain of the system. Manages user access, inventory levels, and cloud syncing instantly.", 
+        image: "https://res.cloudinary.com/djjp6zkxr/image/upload/v1767167559/New_Project_14_1_ejrqjm.png" 
       },
       { 
         title: "Fire Suppression", 
         description: "Multi-layer thermal protection ensures maximum operational safety.", 
-        image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767092548/New_Project_13_l3umfu.png" 
+        image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767016461/New_Project_4_atuuux.png" 
       }
     ],
     feature1: {
-      title: "Autonomous Distribution",
-      description: "Enter your destination and our ecosystem will manage your energy flow, from start to finish.",
+      title: "Fuelling on Autopilot",
+      description: "Your team spends less time managing fuel and more time running business",
       image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-FSD-Desktop-NA-v2.png",
       video: "https://res.cloudinary.com/dt8jmqu8d/video/upload/v1767072674/Untitled_video_-_Made_with_Clipchamp_2_mbtpv5.mp4"
     },
     feature2: {
-      title: "Enterprise Intelligence",
-      description: "A comprehensive view of your entire energy distribution network in real-time.",
-      image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1764218338/Screenshot_2025-11-27_100831_qvnqx7.png"
+      title: "Repos IoT R&D Lab",
+      description: "A Government of India–recognised, DSIR-certified facility for fuel automation R&D. From hardware to firmware, everything is designed for dependable real-time operations.",
+      image: "https://res.cloudinary.com/djjp6zkxr/image/upload/v1767172285/New_Project_16_1_ibdbdc.png"
     },
     feature3: {
-      title: "Tri-Motor Power",
-      description: "Advanced multi-pump configuration ensures rapid, consistent, and high-volume fuel delivery for heavy-duty industrial demands.",
+      title: "Automated Overfill Prevention",
+      description: "Prevents overfilling through real-time detection and integrated safety valve control.",
       image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767076045/New_Project_5_twbfyu.png"
     },
     efficientItems: [
       { 
-        title: "Refined Aerodynamics", 
-        description: "Every curve is engineered to reduce drag and maximize operational range.", 
-        image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767093507/New_Project_14_mgvde9.png" 
+        title: "Engineering-first design approach", 
+        description: "Design driven by engineering principles to ensure reliability, scalability, and predictable system behavior.", 
+        image: "https://res.cloudinary.com/djjp6zkxr/image/upload/v1767169059/New_Project_15_1_cg5myt.png" 
       },
       { 
-        title: "Optimized Airflow", 
-        description: "Active shutters and hidden vents manage airflow to cooling systems with precise efficiency.", 
+        title: "PESO-certified quality framework", 
+        description: "Quality processes aligned with PESO standards to ensure compliance, safety, and audit readiness.", 
         image: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767077458/2_fprgpf.png" 
       }
     ],
     goAnywhere: {
-      title: "Go Anywhere",
-      description: "Empower your fleet with the freedom to move. Our infrastructure ensures you're never more than a few minutes away from a high-speed node.",
+      title: "Fueling India’s Moving Economy",
+      description: "Supporting continuous operations across fuel intensive industries that build and power the nation.",
+      image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Go-Anywhere-Desktop-NA.png",
+      video: "https://res.cloudinary.com/dt8jmqu8d/video/upload/v1767077790/Kashmir_Fuelling_video_um4gzx.mp4"
+    }
+  },
+  'datum-x': {
+    hero: {
+      title: 'Datum X',
+      subtitle: 'Extreme Efficiency',
+      image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767087445/New_Project_7_qv8zju.png'
+    },
+    stats: [
+      { label: 'Speed', value: '120', unit: 'L/m' },
+      { label: 'Tracking', value: '100', unit: '%' },
+      { label: 'Monitoring', value: '24/7' }
+    ],
+    advancedEcosystemImage: "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767086766/New_Project_10_p4lksc.png",
+    techItems: [
+      { 
+        title: "Precision Engineering", 
+        description: "Engineered with 3.0mm mild steel and anti-rust protection for unmatched durability and reliable storage of your fuel.", 
+        image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767006972/Gemini_Generated_Image_wpb9cywpb9cywpb9_ytocsm.png' 
+      },
+      { 
+        title: "All-Round Protection", 
+        description: "A custom-designed canopy encapsulates the entire system Tank, Repos IOT Controller, shielding it from weather, accidents, and tampering system from external damage.", 
+        image: 'https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767158961/New_Project_1_ke6kaq_1_r4mmtz.png' 
+      }
+    ],
+    performance: {
+      title: "Next Level Performance",
+      description: "Beyond distribution, our ecosystem provides an intelligent layer of data that helps you optimize your operations in real-time.",
+      image: "https://res.cloudinary.com/djjp6zkxr/image/upload/v1767163509/New_Project_9_1_rnzxdy.png"
+    },
+    safetyItems: [
+      { 
+        title: "Smart Controller", 
+        description: "The brain of the system. Manages user access, inventory levels, and cloud syncing instantly.", 
+        image: "https://res.cloudinary.com/djjp6zkxr/image/upload/v1767160295/New_Project_7_1_lb4uqs.png" 
+      },
+      { 
+        title: "Leak Detection", 
+        description: "Real-time monitoring of tank integrity with instant alerts for any anomalies.", 
+        image: "https://res.cloudinary.com/djjp6zkxr/image/upload/v1767161138/New_Project_8_1_hv3oz3.png" 
+      }
+    ],
+    feature1: {
+      title: "Fuelling on Autopilot",
+      description: "Your team spends less time managing fuel and more time running business",
+      image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-FSD-Desktop-NA-v2.png",
+      video: "https://res.cloudinary.com/dt8jmqu8d/video/upload/v1767072674/Untitled_video_-_Made_with_Clipchamp_2_mbtpv5.mp4"
+    },
+    feature2: {
+      title: "Repos IoT R&D Lab",
+      description: "A Government of India–recognised, DSIR-certified facility for fuel automation R&D. From hardware to firmware, everything is designed for dependable real-time operations.",
+      image: "https://res.cloudinary.com/djjp6zkxr/image/upload/v1767172285/New_Project_16_1_ibdbdc.png"
+    },
+    feature3: {
+      title: "Refueling with 100% Control",
+      description: "Stops loss, misuse, and inaccuracies by controlling how fuel is delivered and recorded.",
+      image: "https://res.cloudinary.com/djjp6zkxr/image/upload/v1767175021/New_Project_18_1_ayljgp.png"
+    },
+    efficientItems: [
+      { 
+        title: "Engineering-first design approach", 
+        description: "Design driven by engineering principles to ensure reliability, scalability, and predictable system behavior.", 
+        image: "https://res.cloudinary.com/djjp6zkxr/image/upload/v1767164710/New_Project_11_1_p5vrdc.png" 
+      },
+      { 
+        title: "PESO-certified quality framework", 
+        description: "Quality processes aligned with PESO standards to ensure compliance, safety, and audit readiness.", 
+        image: "https://res.cloudinary.com/djjp6zkxr/image/upload/v1767165659/New_Project_12_1_aitr0z.png" 
+      },
+      { 
+        title: "Detail-driven system architecture", 
+        description: "Architecture defined with careful attention to components and operational edge cases.", 
+        image: "https://res.cloudinary.com/djjp6zkxr/image/upload/v1767166211/New_Project_13_1_vcyldw.png" 
+      }
+    ],
+    goAnywhere: {
+      title: "Fueling India’s Moving Economy",
+      description: "Supporting continuous operations across fuel intensive industries that build and power the nation.",
       image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-New-Go-Anywhere-Desktop-NA.png",
       video: "https://res.cloudinary.com/dt8jmqu8d/video/upload/v1767077790/Kashmir_Fuelling_video_um4gzx.mp4"
     }

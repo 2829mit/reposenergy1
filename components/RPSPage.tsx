@@ -52,6 +52,9 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId }) => {
           alt={`${data.hero.title} Hero`} 
           className="w-full h-full object-cover"
         />
+        {/* Gradient Overlay for Text Visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/20 pointer-events-none" />
+        
         <div className="absolute inset-0 flex flex-col items-center justify-start pt-20 lg:pt-24 text-white">
           <div className="text-center animate-hero flex flex-col items-center px-4">
             <div className="mb-6 lg:mb-10">
@@ -362,6 +365,9 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId }) => {
           alt={`${data.hero.title} Conclusion`} 
           className="w-full h-full object-cover"
         />
+        {/* Gradient Overlay for Text Visibility - Conclusion */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/20 pointer-events-none" />
+
         <div className="absolute inset-0 flex flex-col items-center justify-start pt-20 lg:pt-24 text-white pointer-events-none px-4">
           <div className="text-center animate-hero flex flex-col items-center">
             <div className="mb-10">
