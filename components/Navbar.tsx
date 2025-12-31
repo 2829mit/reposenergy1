@@ -1,3 +1,4 @@
+
 import React, { useRef, useState } from 'react';
 import { MENU_ITEMS, PRODUCTS, SOLUTIONS, RESOURCES } from '../constants';
 import { MenuCategory, Page } from '../types';
@@ -95,7 +96,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
             {[
               { title: 'Life at Repos', desc: 'Culture, perks, and our way of life.', id: 'life-at-repos' },
               { title: 'Work at Repos', desc: 'Solve hard problems that matter.', id: 'work-at-repos' },
-              { title: 'Teams at Repos', desc: 'Meet the minds behind the innovation.', id: null }
+              { title: 'Teams at Repos', desc: 'Meet the minds behind the innovation.', id: 'teams-at-repos' }
             ].map((item) => (
               <div 
                 key={item.title} 
@@ -283,7 +284,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeMenu, onMenuHover, onNavigate }) 
                   {[
                     {name: 'Life at Repos', id: 'life-at-repos'}, 
                     {name: 'Work at Repos', id: 'work-at-repos'}, 
-                    {name: 'Teams at Repos', id: null}
+                    {name: 'Teams at Repos', id: 'teams-at-repos'}
                   ].map(careerItem => (
                     <div 
                       key={careerItem.name} 

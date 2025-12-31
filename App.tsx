@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -8,6 +9,7 @@ import IndustrySolutionPage from './components/InfrastructurePage';
 import FuelIntelligencePage from './components/FuelIntelligencePage';
 import LifeAtReposPage from './components/LifeAtReposPage';
 import WorkAtReposPage from './components/WorkAtReposPage';
+import TeamsAtReposPage from './components/TeamsAtReposPage';
 import Footer from './components/Footer';
 import { MenuCategory, Page } from './types';
 import { INFRASTRUCTURE_PAGE_DATA, MANUFACTURING_PAGE_DATA, LOGISTICS_PAGE_DATA, MINING_PAGE_DATA, GENSETS_PAGE_DATA } from './constants';
@@ -70,6 +72,10 @@ const App: React.FC = () => {
 
     if (currentPage === 'work-at-repos') {
       return <WorkAtReposPage />;
+    }
+
+    if (currentPage === 'teams-at-repos') {
+      return <TeamsAtReposPage />;
     }
 
     if (currentPage === 'infrastructure') {

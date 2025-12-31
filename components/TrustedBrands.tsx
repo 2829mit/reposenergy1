@@ -2,14 +2,13 @@
 import React from 'react';
 
 const BRAND_LOGOS = [
-  "https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/f/f4/Mercedes-Benz_Logo_2010.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/0/0d/Tata_logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_Logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/e/e8/Shell_logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/5/5e/Reliance_Industries_Logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/a/a0/Ford_Motor_Company_Logo.svg",
+  "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767183935/20201105065045_Adani_logo_2012_ua3cro.svg",
+  "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767183928/680592bf67912-Atlas-Copco_wscawe.svg",
+  "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767183919/vrl-logistics-ltd-siliguri-transporters-equvika0qs_rkhou0.png",
+  "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767183910/Shapoorji_Pallonji_Group_logo.svg_izymim.png",
+  "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767183903/PRAJIND.NS_BIG-4deeb8cb_odsyk8.png",
+  "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767183897/IRB_jyfkmf.png",
+  "https://res.cloudinary.com/dt8jmqu8d/image/upload/v1767183628/logo_evcfw2.png",
 ];
 
 const BrandRow = ({ direction = 'left', speed = '40s' }: { direction?: 'left' | 'right', speed?: string }) => {
